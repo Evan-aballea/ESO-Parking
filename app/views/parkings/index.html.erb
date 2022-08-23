@@ -4,14 +4,15 @@
 
 <ul>
   <% @parkings.each do |parking| %>
-    <div class="card-product" width= "20px">
-      <%= parking.photo %>
-      <div class="card-product-infos">
-        <h2><%= parking.address %></h2>
-        <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
-        <p>Availability: <%= parking.availability_date %></p>
-
+    <%=  link_to parking_path(parking), class: "link-to-show" do%>
+      <div class="card-product" width= "20px" >
+        <%= parking.photo %>
+        <div class="card-product-infos">
+          <h2><%= parking.address %></h2>
+          <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
+          <p>Availability: <%= parking.availability_date %></p>
+        </div>
       </div>
-    </div>
+    <% end  %>
   <% end %>
 </ul>

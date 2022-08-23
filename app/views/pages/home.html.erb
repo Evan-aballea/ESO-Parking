@@ -4,12 +4,16 @@
       <p><span data-controller="typed-js"></span>Solve your parking problems forever!</p>
     </div>
     <div class ="container_buttons">
+      <%=  link_to parkings_path, class: "link-to-show" do%>
       <p class="button">
        Browse Parkings in your area
       </p>
+      <% end %>
+      <%=  link_to new_user_session_path, class: "link-to-login" do%>
       <p class="button">
       Log-in
       </p>
+      <% end %>
   </div>
 </div>
 
@@ -17,10 +21,12 @@
     <h2 class = "text-center">How it works</h2>
     <div class = "container-cards">
       <div class = "card">
+      <%=  link_to new_user_session_path, class: "link-to-login" do%>
         <%= image_tag "profile.png"%>
         <h3>Sign-in</h3>
         <p>Lorem ipsum dolor sit amet.</p>
       </div>
+      <% end %>
       <div class = "card">
         <%= link_to new_parking_path, class: "link-to-show" do  %>
         <%= image_tag "land.png"%>

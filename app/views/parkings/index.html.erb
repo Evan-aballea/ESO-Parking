@@ -5,7 +5,7 @@
 <ul>
   <% @parkings.each do |parking| %>
     <div class="card-product" width= "20px">
-      <img src="https://images.prismic.io/pmdc-edito/2c40afd4-a1b1-4b26-9819-b8efd9e497d3_surface+stationnement+Algar.jpg?auto=compress,format&rect=0,1,1253,835&w=1254&h=836" />
+      <%= parking.photo %>
       <div class="card-product-infos">
         <h2><%= parking.address %></h2>
         <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>

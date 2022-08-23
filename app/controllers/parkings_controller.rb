@@ -38,7 +38,7 @@ class ParkingsController < ApplicationController
 
 
   def parking_params
-    params.require(:parking).permit(:address, photo: [])
+    params.require(:parking).permit(:address, photos: [])
   end
 
 end

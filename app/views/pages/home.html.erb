@@ -22,14 +22,18 @@
         <p>Lorem ipsum dolor sit amet.</p>
       </div>
       <div class = "card">
-      <%= image_tag "land.png"%>
-        <h3>Land a Parking space</h3>
+        <%= link_to new_parking_path, class: "link-to-show" do  %>
+        <%= image_tag "land.png"%>
+        <h3>Add a Parking space</h3>
         <p>Lorem ipsum dolor sit amet.</p>
+        <% end %>
       </div>
       <div class = "card">
+        <%=  link_to parkings_path, class: "link-to-show" do%>
         <%= image_tag "browse.png" %>
-        <h3>browse parking space</h3>
+        <h3>Browse parking space</h3>
         <p>Lorem ipsum dolor sit amet.</p>
+        <% end %>
       </div>
     </div>
   </div>

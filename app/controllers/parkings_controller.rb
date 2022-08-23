@@ -1,4 +1,5 @@
 class ParkingsController < ApplicationController
+  before_action :set_parking, only: [:show, :edit, :update, :destroy]
 
   def index
     @parkings = Parking.all
@@ -22,4 +23,9 @@ class ParkingsController < ApplicationController
   def destroy
   end
 
+  private
+
+  def set_parking
+    @parking = Parking.find(params[:id])
+  end
 end

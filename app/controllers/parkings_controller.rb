@@ -1,4 +1,5 @@
 class ParkingsController < ApplicationController
+  before_action :set_parking, only: [:show, :edit, :update, :destroy]
 
   def index
     @parkings = Parking.all
@@ -34,6 +35,7 @@ class ParkingsController < ApplicationController
   def set_parking
     @parking = Parking.find(params[:id])
   end
+
 
   def parking_params
     params.require(:parking).permit(:address, :photo)

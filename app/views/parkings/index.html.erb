@@ -6,7 +6,7 @@
   <% @parkings.each do |parking| %>
     <%=  link_to parking_path(parking), class: "link-to-show" do%>
       <div class="card-product" width= "20px" >
-        <%= parking.photo %>
+        <%= cl_image_tag photos.key %>
         <div class="card-product-infos">
           <h2><%= parking.address %></h2>
           <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>

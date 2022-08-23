@@ -9,9 +9,16 @@ class ParkingsController < ApplicationController
   end
 
   def new
+    @parking = Parking.new
   end
 
   def create
+    @parking = Parking.new(parking_params)
+    if @parking.save
+      redirect_to parking_path(@parking)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -28,4 +35,10 @@ class ParkingsController < ApplicationController
   def set_parking
     @parking = Parking.find(params[:id])
   end
+
+
+  def parking_params
+    params.require(:parking).permit(:address, :photo)
+  end
+
 end

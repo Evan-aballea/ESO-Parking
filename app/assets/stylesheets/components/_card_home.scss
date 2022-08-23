@@ -1,0 +1,41 @@
+.text-center {
+  text-align: center;
+  font-size: 24px;
+  color: black;
+}
+
+.how-it-works{
+  width: 900px;
+  margin: auto
+}
+
+.container-cards {
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  height: 300px;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+.card {
+  width: 200px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  text-align: center;
+  border: 4px;
+  border: 1px solid rgb(230,230,230);
+  padding: 20px;
+}
+
+.card h3{
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 16px;
+  opacity: 0.5;
+}

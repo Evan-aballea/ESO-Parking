@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :parkings
 
-  validates :firstname, :lastname, :email, :phone_number, :identity_card, presence: true
-  validates :identity_card, :email, uniqueness: true
+  validates :first_name, :last_name, :email, :phone_number, presence: true
+  validates :email, uniqueness: true
 end

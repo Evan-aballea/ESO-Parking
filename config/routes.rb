@@ -9,7 +9,4 @@ Rails.application.routes.draw do
   resources :parkings do
     resources :bookings, only: [:create, :index, :destroy]
   end
-
-
-
 end

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   before_action :set_parking, only: %i[create]
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
 
   def index

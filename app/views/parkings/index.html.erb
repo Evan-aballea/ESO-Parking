@@ -31,7 +31,7 @@
       <% end  %>
     <% end %>
   </ul>
-  <div class= "map" style="width: 50%; height: 400px; position: fixed; right: 10px; margin-right: 20px"
+  <div class= "map" style="width: 45%; height: 400px; position: fixed; right: 10px; margin-right: 20px; margin-top: 10px; margin-bottom: 40px; border-radius: 5px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

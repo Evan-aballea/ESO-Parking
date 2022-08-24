@@ -44,8 +44,9 @@
   </div>
   <div id="booking">
     <h2>Prix:  <%=@parking.price %> €/jour</h2>
-    <%= simple_form_for [@parking, @booking] do |f| %>
+    <%= simple_form_for([@parking, @booking]) do |f| %>
       <%= f.input :arrival %>
+      <%= f.input :depart %>
       <%= f.submit "Réserver", class: "btn btn-primary" %>
     <% end %>
   </div>

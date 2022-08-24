@@ -24,13 +24,13 @@
           <div class="card-product-infos">
             <h2><%= parking.address %></h2>
             <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
-            <p>Availability: <%= parking.availability_date %></p>
+            <p> Availability: <%= parking.availability_date %></p>
           </div>
         </div>
       <% end  %>
     <% end %>
   </ul>
-  <div class= "map" style="width: 50%; height: 500px; position: fixed; right: 10px; margin-right: 20px"
+  <div class= "map" style="width: 50%; height: 400px; position: fixed; right: 10px; margin-right: 20px"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

@@ -1,5 +1,5 @@
+<div id="profile"><h1 >Profile</h1></div>
 
-<h1>profile</h1>
 
 <div class ="dashcontainer">
 
@@ -13,9 +13,9 @@
       <% if @bookings %>
         <% @bookings.each do |booking| %>
            <ul>
-              <li>Adresse: <%= booking.parking.address%> </li>
-              <li>arrival: <%= booking.arrival%></li>
-              <li>depart:  <%= booking.depart%></li>
+              <li><strong>Adresse:</strong> <%= booking.parking.address%> </li>
+              <li><strong>Arrival:</strong> <%= booking.arrival%></li>
+              <li><strong>Depart:</strong>  <%= booking.depart%></li>
             </ul>
           <% end %>
       <% else %>
@@ -27,16 +27,20 @@
   <h2>My Parkings</h2>
        <% if @parkings %>
           <% @parkings.each do |parking| %>
-            <ul>
-              <li>Adresse:  <%=parking.address  %></li>
-              <li><%= parking.description %></li>
-              <li>Dimension:  <%=parking.height%>cm, <%= parking.width%>cm, <%=parking.length%>cm.</li>
-              <li>disponibilité:  <%=parking.availability_date%></li>
-            </ul>
+              <%=  link_to parking_path(parking), class: "link-to-show" do%>
+              <div class="card-product">
+                <%= cl_image_tag parking.photos.first.key, width:200 %>
+                <div class="card-product-infos">
+                  <h2><%= parking.address %></h2>
+                  <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
+                  <p>Availability: <%= parking.availability_date %></p>
+                </div>
+              </div>
+              <% end  %>
+           <% end %>
+        <% else %>
+           <p>you do not have any Parking yet</p>
         <% end %>
-      <% else %>
-      <p>you do not have any Parking yet</p>
-      <% end %>
   </div>
 
 </div>

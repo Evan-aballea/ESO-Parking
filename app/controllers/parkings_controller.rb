@@ -17,6 +17,14 @@ class ParkingsController < ApplicationController
 
   def show
     @booking = Booking.new
+    # The `geocoded` scope filters only flats with coordinates
+    @parking_map = Parking.where(id: params[:id])
+    @markers = @parking_map.geocoded.map do |park|
+      {
+        lat: park.latitude,
+        lng: park.longitude
+      }
+    end
   end
 
   def new

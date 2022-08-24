@@ -5,12 +5,16 @@
   justify-content: space-around;
 }
 
+h1 {
+  margin: 20px;
+}
+
 .avatar-square {
   width: 120px;
   height: 110px;
-  border-radius: 0px;
+  border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  border: grey 1px solid;
 }
 
 .informations {
@@ -19,8 +23,8 @@
   background-color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border: 4px;
+  border-radius: 5px;
   border: 1px solid rgb(230,230,230);
-  width: 60%;
 }
 
 #booking {
@@ -35,18 +39,20 @@
 }
 
 .host-informations {
-display: inline-flex;
-align-items: center;
-display: flexbox;
+  display: inline-flex;
+  align-items: center;
+  width: 60%;
+  display: flexbox;
 }
 
 #host-name {
-  margin-left: 16px;
+  margin-left: 20px;
+  font-size: 22px;
+  font-weight: bold;
 }
+
 #map {
   margin: 32px;
   height: 70vh;
-  border-radius: 24px;
-
-
+  border-radius: 14px;
 }

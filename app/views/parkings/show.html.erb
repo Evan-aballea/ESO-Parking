@@ -31,7 +31,7 @@
   <div class="informations">
     <div class="host-informations">
       <%= cl_image_tag @parking.user.photo.key, class: "avatar-square", alt: "avatar-square" %>
-      <p id="host-name"><%= @parking.user.first_name %> <%= @parking.user.last_name %></p>
+      <p id="host-name"><%= @parking.user.first_name.capitalize %> <%= @parking.user.last_name.capitalize %></p>
     </div>
     <div class="information-logements">
       <ul>

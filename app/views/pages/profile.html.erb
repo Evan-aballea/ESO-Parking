@@ -1,17 +1,42 @@
+
 <h1>profile</h1>
 
 <div class ="dashcontainer">
 
   <div class ="user-info">
-    <p>profile</p>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-square", alt: "avatar-square" %>
+      <p id="host-name"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></p>
   </div>
 
   <div class ="bookings">
-    <p>bookings</p>
+      <h2>My bookings</h2>
+      <% if @bookings %>
+        <% @bookings.each do |booking| %>
+           <ul>
+              <li>Adresse: <%= booking.parking.address%> </li>
+              <li>arrival: <%= booking.arrival%></li>
+              <li>depart:  <%= booking.depart%></li>
+            </ul>
+          <% end %>
+      <% else %>
+      <p>you do not have any booking yet</p>
+      <% end %>
   </div>
 
   <div class ="parkings">
-  <p>parkings</p>
+  <h2>My Parkings</h2>
+       <% if @parkings %>
+          <% @parkings.each do |parking| %>
+            <ul>
+              <li>Adresse:  <%=parking.address  %></li>
+              <li><%= parking.description %></li>
+              <li>Dimension:  <%=parking.height%>cm, <%= parking.width%>cm, <%=parking.length%>cm.</li>
+              <li>disponibilité:  <%=parking.availability_date%></li>
+            </ul>
+        <% end %>
+      <% else %>
+      <p>you do not have any Parking yet</p>
+      <% end %>
   </div>
 
 </div>

@@ -1,20 +1,18 @@
 // @import "components/booking"
 
-.contenaire {
-  display: flex;
-  justify-content: space-around;
-}
+
 
 h1 {
   margin: 20px;
 }
 
-.avatar-square {
-  width: 120px;
-  height: 110px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: grey 1px solid;
+.carousel-inner {
+  margin-top: 32px;
+  margin-bottom: 32px;}
+
+.contenaire {
+  display: flex;
+  justify-content: space-around;
 }
 
 .informations {
@@ -23,8 +21,32 @@ h1 {
   background-color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border: 4px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 1px solid rgb(230,230,230);
+
+}
+.avatar-square {
+  width: 120px;
+  height: 110px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: grey 1px solid;
+}
+
+.host-informations {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+}
+
+#host-name {
+  margin-left: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.informations-logement{
+  align-items: center;
 }
 
 #booking {
@@ -38,21 +60,23 @@ h1 {
   border-radius: 8px;
 }
 
-.host-informations {
-  display: inline-flex;
-  align-items: center;
-  width: 60%;
-  display: flexbox;
+.price {font-size: 26px ;}
+
+.btn {
+  margin-top: 16px;
+  border-radius: 8px;
+  position: relative;
+  left: 36%;
+  background-color: #211F1C;
+  border: none;
 }
 
-#host-name {
-  margin-left: 20px;
-  font-size: 22px;
-  font-weight: bold;
-}
 
 #map {
   margin: 32px;
-  height: 70vh;
-  border-radius: 14px;
+  height: 363px;
+  border-radius: 50%;
+  width: 25%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgb(230,230,230);
 }

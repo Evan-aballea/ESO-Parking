@@ -40,6 +40,8 @@ class ParkingsController < ApplicationController
   end
 
   def destroy
+    @parking.destroy
+    redirect_to parkings_path, status: :see_other
   end
 
   private

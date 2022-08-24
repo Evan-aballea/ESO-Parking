@@ -28,12 +28,15 @@
        <% if @parkings %>
           <% @parkings.each do |parking| %>
               <%=  link_to parking_path(parking), class: "link-to-show" do%>
-              <div class="card-product">
+              <div class="card-profile">
                 <%= cl_image_tag parking.photos.first.key, width:200 %>
-                <div class="card-product-infos">
+                <div class="card-profile-infos">
                   <h2><%= parking.address %></h2>
                   <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
-                  <p>Availability: <%= parking.availability_date %></p>
+                  <div id = "bottom">
+                    <p>Availability: <%= parking.availability_date %></p>
+                    <p><small><%= link_to "delete", parking_path(parking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this parking?"}, class: 'text-danger' %></small></p>
+                  </div>
                 </div>
               </div>
               <% end  %>

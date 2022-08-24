@@ -24,7 +24,8 @@ class ParkingsController < ApplicationController
 
   def create
     @parking = Parking.new(parking_params)
-    if @parking.save
+    @parking.user = current_user
+    if @parking.save!
       redirect_to parking_path(@parking)
     else
       render :new, status: :unprocessable_entity
@@ -48,7 +49,7 @@ class ParkingsController < ApplicationController
 
 
   def parking_params
-    params.require(:parking).permit(:address, photos: [])
+    params.require(:parking).permit(:address, :height, :width, :length, :description, :pass_code, :availability_date, :availability_time, :price, photos: [])
   end
 
 end

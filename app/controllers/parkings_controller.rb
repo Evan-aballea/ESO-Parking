@@ -1,8 +1,8 @@
 class ParkingsController < ApplicationController
 
   before_action :set_parking, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_user!
-  #skip_before_action :authenticate_user!, only: [:index, :show, :create]
+  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   def index
     @parkings = Parking.all

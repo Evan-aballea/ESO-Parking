@@ -15,25 +15,24 @@
   </form>
 </div>
 
-
-
-
-<ul>
-  <% @parkings.each do |parking| %>
-    <%=  link_to parking_path(parking), class: "link-to-show" do%>
-      <div class="card-product">
-        <%= cl_image_tag parking.photos.first.key, width:200 %>
-        <div class="card-product-infos">
-          <h2><%= parking.address %></h2>
-          <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
-          <p>Availability: <%= parking.availability_date %></p>
+<div class= "index-split">
+  <ul>
+    <% @parkings.each do |parking| %>
+      <%=  link_to parking_path(parking), class: "link-to-show" do%>
+        <div class="card-product">
+          <%= cl_image_tag parking.photos.first.key, width:200 %>
+          <div class="card-product-infos">
+            <h2><%= parking.address %></h2>
+            <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
+            <p>Availability: <%= parking.availability_date %></p>
+          </div>
         </div>
-      </div>
-    <% end  %>
-  <% end %>
-</ul>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <% end  %>
+    <% end %>
+  </ul>
+  <div class= "map" style="width: 50%; height: 500px; position: fixed; right: 10px; margin-right: 20px"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>

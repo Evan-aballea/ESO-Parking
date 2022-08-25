@@ -18,8 +18,45 @@
   width: 150px;
 }
 
+.nav-item-dropdown {
+  z-index: 4;
+}
+
 .nav-link {
-  color: rgb(224, 215, 195);
+  display: block;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  color: var(--bs-nav-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  color: rgb(120, 157, 114);
+}
+
+#name{
+  color: rgb(120, 157, 114);
+}
+#name:hover{
+  color:  rgb(120, 157, 114);
+}
+
+.nav-link:hover{
+  color: rgb(65, 87, 62);
+}
+
+.link-to-login{
+  display: block;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  color: var(--bs-nav-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  color: rgb(136, 175, 130);
+}
+
+.link-to-login:hover{
+  color: rgb(65, 87, 62);
 }
 
 #navbarDropdown{

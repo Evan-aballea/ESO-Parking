@@ -3,7 +3,7 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
         <h3>Add a new parking</h3>
-        <%= simple_form_for @parking,  method: "get"  do |f| %>
+        <%= simple_form_for @parking,  method: "post"  do |f| %>
           <%= f.input :address, placeholder: 'Parking' %>
           <%= f.input :height, placeholder: 'Height' %>
           <%= f.input :width, placeholder: 'Width' %>

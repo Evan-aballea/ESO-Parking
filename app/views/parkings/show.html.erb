@@ -1,67 +1,70 @@
-<div class = "title">
-  <h1>Parking: <%=@parking.address%></h1>
-  <div class = "edit_delete">
-  <% if @parking.user == current_user %>
-   <p id ="delete-button"><%= link_to "Delete", parking_path(@parking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ti delete this Parking?"}%></p>
-   <p id ="edit-button"> <%= link_to edit_parking_path, class: "link-to-show" do %> edit <%end %></p>
-   <% end %>
-  </div>
-</div>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= cl_image_tag @parking.photos[0].key, class:"d-block w-50 container h-100"  %>
-    </div>
-      <% @parking.photos[1..].each do |photo| %>
-     <div class="carousel-item">
-      <%= cl_image_tag photo.key, class:"d-block w-50 container h-100"  %>
-    </div>
+<div style="margin:50px">
+  <div class = "title">
+    <h1>Parking: <%=@parking.address%></h1>
+    <div class = "edit_delete">
+    <% if @parking.user == current_user %>
+    <p id ="delete-button"><%= link_to "Delete", parking_path(@parking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ti delete this Parking?"}%></p>
+    <p id ="edit-button"> <%= link_to edit_parking_path, class: "link-to-show" do %> edit <%end %></p>
     <% end %>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-
-<div class= "contenaire">
-  <div class="informations">
-    <div class="host-informations">
-      <%= cl_image_tag @parking.user.photo.key, class: "avatar-square", alt: "avatar-square" %>
-      <p id="host-name"><%= @parking.user.first_name.capitalize %> <%= @parking.user.last_name.capitalize %></p>
-    </div>
-    <div class="informations-logement">
-      <ul>
-        <li>Adresse:  <%=@parking.address  %></li>
-        <li><%= @parking.description %></li>
-        <li>Dimension:  <%=@parking.height%>cm, <%= @parking.width%>cm, <%=@parking.length%>cm.</li>
-        <li>disponibilité:  <%=@parking.start_date%></li>
-      </ul>
     </div>
   </div>
-  <div id="booking">
-    <h2 class="price">Prix:  <%=@parking.price %> €/jour</h2>
-    <%= simple_form_for([@parking, @booking]) do |f| %>
-      <%= f.input :booking_start, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :booking_end, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.submit "Réserver", class: "btn btn-primary" %>
-    <% end %>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= cl_image_tag @parking.photos[0].key, class:"d-block w-50 container h-100"  %>
+      </div>
+        <% @parking.photos[1..].each do |photo| %>
+      <div class="carousel-item">
+        <%= cl_image_tag photo.key, class:"d-block w-50 container h-100"  %>
+      </div>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <div id="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+
+  <div class= "contenaire">
+    <div class="informations">
+      <div class="host-informations">
+        <%= cl_image_tag @parking.user.photo.key, class: "avatar-square", alt: "avatar-square" %>
+        <p id="host-name"><%= @parking.user.first_name.capitalize %> <%= @parking.user.last_name.capitalize %></p>
+      </div>
+      <div class="informations-logement">
+        <ul>
+          <li>Adresse:  <%=@parking.address  %></li>
+          <li><%= @parking.description %></li>
+          <li>Dimension:  <%=@parking.height%>cm, <%= @parking.width%>cm, <%=@parking.length%>cm.</li>
+          <li>disponibilité:  <%=@parking.start_date%></li>
+        </ul>
+      </div>
+    </div>
+    <div id="booking">
+      <h2 class="price">Prix:  <%=@parking.price %> €/jour</h2>
+      <%= simple_form_for([@parking, @booking]) do |f| %>
+        <%= f.input :booking_start, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :booking_end, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.submit "Réserver", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div id="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
 

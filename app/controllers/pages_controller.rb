@@ -5,6 +5,9 @@ class PagesController < ApplicationController
   def profile
     @parkings = Parking.where(user: current_user)
     @bookings = Booking.where(user: current_user)
+    @parkings.each do |parking|
+      @bookings_parking = parking.bookings
+    end
   end
 
   private

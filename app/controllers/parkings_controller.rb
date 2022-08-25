@@ -67,9 +67,7 @@ class ParkingsController < ApplicationController
     @parking = Parking.find(params[:id])
   end
 
-
   def parking_params
     params.require(:parking).permit(:address, :height, :width, :length, :description, :pass_code, :availability_date, :availability_time, :price, photos: [])
   end
-
 end

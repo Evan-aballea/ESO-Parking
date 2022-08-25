@@ -40,8 +40,21 @@
                   </div>
                 </div>
               </div>
-              <% end  %>
-           <% end %>
+            </div>
+            <%parking.bookings.each do |booking_by_parking|%>
+              <div class="booking-parking" style="background-color: white; margin-bottom:4px">
+                <h2> One booking by <%=booking_by_parking.user.first_name%> <%=booking_by_parking.user.last_name%> </h2>
+                <p>for the <%=booking_by_parking.arrival%> until <%=booking_by_parking.depart%> </p>
+                <%# <%=booking_by_parking.user.photo.key%>
+                <%if booking_by_parking.confirmation == false %>
+                  <%=link_to "Validate the booking", validate_booking_path(booking_by_parking), data: {turbo_method: :patch}, class:"btn btn-primary" %>
+                <%end%>
+              </div>
+            <%end%>
+
+
+          <% end %>
+         <%end%>
         <% else %>
            <p>you do not have any Parking yet</p>
         <% end %>

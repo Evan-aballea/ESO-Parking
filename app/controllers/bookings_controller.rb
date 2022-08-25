@@ -7,6 +7,13 @@ class BookingsController < ApplicationController
   def index
   end
 
+  def validate
+    @booking = Booking.find(params[:id])
+    @booking.confirmation = true
+    @booking.save!
+    redirect_to profile_path()
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
@@ -18,10 +25,15 @@ class BookingsController < ApplicationController
   def destroy
   end
 
+
   private
 
   def set_parking
     @parking = Parking.find(params[:parking_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:booking_id])
   end
 
   def booking_params

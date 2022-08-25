@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :parkings do
-    resources :bookings, only: [:create, :index, :destroy]
+    resources :bookings, only: [:create, :index]
+  end
+  resources :bookings, only: :destroy do
+    member do
+      patch :validate
+    end
   end
 end

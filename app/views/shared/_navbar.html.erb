@@ -8,15 +8,31 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto">
-      <li class="nav-item active">
-        <%= link_to "Profile", profile_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item active">
-        <%= link_to "New Parking", new_parking_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item active">
-        <%= link_to "Browse", parkings_path, class: "nav-link" %>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+            <%= link_to "Browse", parkings_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+           <a class = "nav-link", href=""><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></a>
+        </li>
+         <li class="nav-item dropdown">
+            <%= cl_image_tag current_user.photo.key, width: 40, height: 40, crop: :fill, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <p class ="dropdown-item"><%= link_to "Profile", profile_path, class: "nav-link"%></p>
+              <p class ="dropdown-item"><%= link_to "New Parking", new_parking_path, class: "nav-link" %></p>
+              <p class ="dropdown-item"><%=  link_to destroy_user_session_path, data: { turbo_method: :delete}, class: "link-to-login" do%>
+                <p>Log-off</p>
+               <% end %>
+            </div>
+          </li>
+      <% else %>
+        <li class="nav-item active">
+            <%= link_to "log-in", new_user_session_path, class: "nav-link" %>
+        </li>
+               <li class="nav-item active">
+            <%= link_to "Browse", parkings_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>

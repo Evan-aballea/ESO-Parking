@@ -88,11 +88,16 @@
   margin-top: 16px;
   border-radius: 8px;
   position: relative;
-  left: 36%;
-  background-color: grey;
+  left: 45%;
+  background-color: whitesmoke;
   border: none;
+
+
 }
 
+.btn:hover{
+  background-color: lightgray;
+}
 
 #map {
   margin: 32px;

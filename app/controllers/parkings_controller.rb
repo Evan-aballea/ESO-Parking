@@ -5,7 +5,11 @@ class ParkingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   def index
-    @parkings = Parking.all
+    if params[:query].present?
+      @parkings = Parking.where("address ILIKE ?", "%#{params[:query]}%")
+    else
+      @parkings = Parking.all
+    end
     @markers = @parkings.geocoded.map do |parking|
       {
         lat: parking.latitude,

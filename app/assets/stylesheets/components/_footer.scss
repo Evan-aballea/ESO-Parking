@@ -10,20 +10,27 @@ footer {
   padding: 10px;
   background-color: rgb(33, 31, 28);
   margin-top: auto;
+
+  h2 {
+    font-weight: lighter;
+    color:#8f8c8c;
+    padding: 5px;
+    font-size: 17px;
+    margin-top: 10px;
+  }
 }
 
-h2 {
-  font-weight: lighter;
-  color:#8f8c8c;
-  padding: 5px;
-  font-size: 17px;
-}
 .social_icon{
+  margin-top: 10px;
   color:rgb(129, 162, 119);
   font-weight: 700;
   font-size: 30px;
   text-decoration: none;
   Transition: 0,4s easy-in-out;
+}
+
+.social_icon:hover{
+  color:rgb(95, 120, 88);
 }
 
 .inline {
@@ -34,4 +41,5 @@ h2 {
 
 .list_inline{
   padding: 0px;
+  margin: 10px;
 }

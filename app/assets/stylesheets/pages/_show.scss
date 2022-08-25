@@ -1,10 +1,32 @@
 // @import "components/booking"
+.title{
+  display: flex;
+  justify-content: space-between;
 
+  h1 {
+    margin: 20px;
+  }
 
+  .edit_delete{
+    display: flex;
+    align-items: center;
+  }
 
-h1 {
-  margin: 20px;
+  a {
+    padding: 10px;
+    margin-top: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #7a9273a3;
+    border: 2px solid rgba(31, 31, 31, 0.926);
+    color: #211F1C;
+  }
+  a:hover{
+    background-color: #7a9273;
+    color: #000000;
+  }
 }
+
 
 .carousel-inner {
   margin-top: 32px;
@@ -67,7 +89,7 @@ h1 {
   border-radius: 8px;
   position: relative;
   left: 36%;
-  background-color: #211F1C;
+  background-color: grey;
   border: none;
 }
 

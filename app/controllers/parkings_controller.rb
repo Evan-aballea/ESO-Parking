@@ -5,7 +5,11 @@ class ParkingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   def index
-    @parkings = Parking.all
+    if params[:query].present?
+      @parkings = Parking.where("address ILIKE ?", "%#{params[:query]}%")
+    else
+      @parkings = Parking.all
+    end
     @markers = @parkings.geocoded.map do |parking|
       {
         lat: parking.latitude,
@@ -42,12 +46,19 @@ class ParkingsController < ApplicationController
   end
 
   def edit
+    @parking = Parking.find(params[:id])
   end
 
   def update
+    @parking = Parking.find(params[:id])
+    @parking.update(parking_params)
+    # No need for app/views/restaurants/update.html.erb
+    redirect_to parking_path(@parking)
   end
 
   def destroy
+    @parking.destroy
+    redirect_to parkings_path, status: :see_other
   end
 
   private

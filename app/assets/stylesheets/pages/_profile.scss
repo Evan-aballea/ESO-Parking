@@ -30,6 +30,11 @@
   }
 }
 
+#bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
 .parkings{
   flex-grow: 2;
   padding: 13px;
@@ -51,4 +56,50 @@
     list-style: none;
     padding-left: 10px;
   }
+}
+.card-profile {
+  overflow: hidden;
+  height: 120px;
+  background: #f6f3ed;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: stretch;
+  margin-top: 10px;
+  margin-right: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card-profile-infos {
+  margin-left: 10px;
+}
+
+.card-profile img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-profile h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  padding: 0px;
+}
+
+.card-profile p {
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: .7;
+
+}
+
+.card-profile .card-product-infos {
+  padding: 16px;
+}
+
+
+a.link-to-show {
+  text-decoration: none;
+  color: black;
 }

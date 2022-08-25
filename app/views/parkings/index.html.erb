@@ -1,22 +1,19 @@
 
 
-<h1>Check out these parkings!</h1>
 
 <div class="search">
-  <form action="">
-    <input type="text"
-      placeholder=" Search Addresses"
-      name="search">
-    <button>
-      <i class="fa fa-search"
-          style="font-size: 18px;">
-      </i>
-    </button>
-  </form>
+  <%= form_with url: parkings_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a parking"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 </div>
 
 
-<div class= "index-split">
+<div class= "index-split" style="margin-top: 70px">
   <ul>
     <% @parkings.each do |parking| %>
       <%=  link_to parking_path(parking), class: "link-to-show" do%>
@@ -31,7 +28,7 @@
       <% end  %>
     <% end %>
   </ul>
-  <div class= "map" style="width: 45%; height: 400px; position: fixed; right: 10px; margin-right: 20px; margin-top: 10px; margin-bottom: 40px; border-radius: 5px;"
+  <div class= "map" style="width: 45%; height: 350px; position: fixed; right: 10px; margin-right: 20px; margin-top: 10px; margin-bottom: 40px; border-radius: 5px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

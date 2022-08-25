@@ -28,33 +28,33 @@ user3.save
 
 
 
-file1a = URI.open("https://www.ootravaux.fr/sites/ootravaux/files/2021-06/Ootravaux-prix-garage-enterre.jpg")
-pkg1 = Parking.new(address: "4 rue pointue", height: '200', width: '300', length: '400', description: 'en bas au deuxieme sous-sol', user_id: user1.id, availability_date: Date.new(2022,2,3), price:20)
+file1a = URI.open("https://www.demainlaville.com/content/uploads/2017/02/entrepot-range-garage-1280x720.png")
+pkg1 = Parking.new(address: "4 rue pointue", height: '200', width: '300', length: '400', description: 'en bas au deuxieme sous-sol', user_id: user1.id, availability_date: Date.new(2022,2,3))
 pkg1.photos.attach(io: file1a, filename: "garage1a.png", content_type: "image/png")
 file1b = URI.open("https://www.demainlaville.com/content/uploads/2017/02/entrepot-range-garage-1280x720.png")
 pkg1.photos.attach(io: file1b, filename: "garage1b.png", content_type: "image/png")
 pkg1.save
 
-file2a = URI.open("https://www.demainlaville.com/content/uploads/2017/02/entrepot-range-garage-1280x720.png")
-pkg2 = Parking.new(address: "12 rue carré", height: '200', width: '300', length: '400', description: '4ème sous-sol', user_id: user1.id, price:25)
+file2a = URI.open("https://www.ootravaux.fr/sites/ootravaux/files/2021-06/Ootravaux-prix-garage-enterre.jpg")
+pkg2 = Parking.new(address: "12 rue carré", height: '200', width: '300', length: '400', description: '4ème sous-sol', user_id: user1.id)
 pkg1.photos.attach(io: file2a, filename: "garage2a.png", content_type: "image/png")
 file2b = URI.open("https://www.ootravaux.fr/sites/ootravaux/files/2021-06/Ootravaux-prix-garage-enterre.jpg")
 pkg2.photos.attach(io: file2b, filename: "garage2b.png", content_type: "image/png")
 pkg2.save
 
-file3a = URI.open("https://cdn.xxl.thumbs.canstockphoto.fr/garage-vide-image-sous-licence_csp16214062.jpg")
-pkg3 = Parking.new(address: "37 rue triangle", height: '200', width: '300', length: '400', description: 'extérieur', user_id: user2.id, price: 30)
+file3a = URI.open("https://previews.123rf.com/images/warrengoldswain/warrengoldswain1610/warrengoldswain161000107/65425617-heureux-sourire-africain-homme-noir-portrait-de-personne-r%C3%A9elle-en-studio-collection-compl%C3%A8te-de-div.jpg")
+pkg3 = Parking.new(address: "37 rue triangle", height: '200', width: '300', length: '400', description: 'extérieur', user_id: user2.id)
 pkg1.photos.attach(io: file3a, filename: "garage3a.png", content_type: "image/png")
-file3b = URI.open("https://thumbs.dreamstime.com/b/garage-presque-vide-22823237.jpg")
+file3b = URI.open("https://previews.123rf.com/images/warrengoldswain/warrengoldswain1610/warrengoldswain161000107/65425617-heureux-sourire-africain-homme-noir-portrait-de-personne-r%C3%A9elle-en-studio-collection-compl%C3%A8te-de-div.jpg")
 pkg3.photos.attach(io: file3b, filename: "garage3b.png", content_type: "image/png")
 pkg3.save
 
 
 
 
-book1 = Booking.new(user_id: user3.id, parking_id: pkg1.id, arrival:DateTime.new(2022,8,23,4,5,6), depart: DateTime.new(2022,8,24,4,5,6))
-book1.save!
-book2 = Booking.new(user_id: user3.id, parking_id: pkg3.id, arrival:DateTime.new(2022,9,23,4,5,6), depart: DateTime.new(2022,9,24,4,5,6))
+book1 = Booking.new(user_id: user3.id, parking_id: pkg1.id, booking_start: DateTime.new(2022,8,23,4,5,6), booking_end: DateTime.new(2022,8,23,4,5,6))
+book1.save
+book2 = Booking.new(user_id: user3.id, parking_id: pkg3.id, booking_start: DateTime.new(2022,9,23,4,5,6), booking_end: DateTime.new(2022,8,23,4,5,6))
 book2.save
-book3 = Booking.new(user_id: user1.id, parking_id: pkg3.id, arrival:DateTime.new(2022,8,23,4,5,6), depart: DateTime.new(2022,8,24,4,5,6))
+book3 = Booking.new(user_id: user1.id, parking_id: pkg3.id, booking_start: DateTime.new(2022,8,23,4,5,6), booking_end: DateTime.new(2022,8,23,4,5,6))
 book3.save

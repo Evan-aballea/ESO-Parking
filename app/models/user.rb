@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :parkings
   has_one_attached :photo
 
-  validates :first_name, :last_name, :email, :phone_number, presence: true
+  validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
 end

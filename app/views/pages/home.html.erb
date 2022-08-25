@@ -9,10 +9,18 @@
        Browse Parkings in your area
       </p>
       <% end %>
-      <%=  link_to new_user_session_path, class: "link-to-login" do%>
-      <p class="button">
-      Log-in
-      </p>
+        <% if user_signed_in? %>
+          <%=  link_to destroy_user_session_path, data: { turbo_method: :delete}, class: "link-to-login" do%>
+          <p class="button">
+            Log-off
+          </p>
+          <% end %>
+        <% else %>
+          <%=  link_to new_user_session_path, class: "link-to-login" do%>
+          <p class="button">
+            Log-in
+          </p>
+          <% end %>
       <% end %>
   </div>
 </div>
@@ -21,24 +29,24 @@
     <h2 class = "text-center">How it works</h2>
     <div class = "container-cards">
       <div class = "card">
-      <%=  link_to new_user_session_path, class: "link-to-login" do%>
+      <%=  link_to new_user_registration_path, class: "link-to-login" do%>
         <%= image_tag "profile.png"%>
         <h3>Sign-in</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Create your account</p>
       </div>
       <% end %>
       <div class = "card">
         <%= link_to new_parking_path, class: "link-to-show" do  %>
         <%= image_tag "land.png"%>
         <h3>Add a Parking space</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <p>You can show to other users your parking space available to land</p>
         <% end %>
       </div>
       <div class = "card">
         <%=  link_to parkings_path, class: "link-to-show" do%>
         <%= image_tag "browse.png" %>
         <h3>Browse parking space</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <p> search for parking spaces available in your area </p>
         <% end %>
       </div>
     </div>

@@ -46,15 +46,15 @@
         <li>Adresse:  <%=@parking.address  %></li>
         <li><%= @parking.description %></li>
         <li>Dimension:  <%=@parking.height%>cm, <%= @parking.width%>cm, <%=@parking.length%>cm.</li>
-        <li>disponibilité:  <%=@parking.availability_date%></li>
+        <li>disponibilité:  <%=@parking.start_date%></li>
       </ul>
     </div>
   </div>
   <div id="booking">
     <h2 class="price">Prix:  <%=@parking.price %> €/jour</h2>
     <%= simple_form_for([@parking, @booking]) do |f| %>
-      <%= f.input :arrival %>
-      <%= f.input :depart %>
+      <%= f.input :booking_start, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :booking_end, as: :string, required: false, input_html: {class: "datepicker"} %>
       <%= f.submit "Réserver", class: "btn btn-primary" %>
     <% end %>
   </div>

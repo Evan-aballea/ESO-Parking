@@ -36,6 +36,7 @@
                   <div id = "bottom">
                     <p>Availability: <%= parking.availability_date %></p>
                     <p><small><%= link_to "delete", parking_path(parking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this parking?"}, class: 'text-danger' %></small></p>
+                    <p id ="edit-button"> <%= link_to edit_parking_path(parking), class: "link-to-show" do %> edit <%end %></p>
                   </div>
                 </div>
               </div>

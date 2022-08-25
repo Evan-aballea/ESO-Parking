@@ -1,6 +1,9 @@
-<%=  link_to parking do%>
-  <div>
-    <h2><%=  parking.address%></h2>
-    <%= cl_image_tag parking.photos.first.key %>
-  </div>
-<% end  %>
+
+<div class="popup" style="text-decoration:none">
+  <%=  link_to parking do%>
+    <div>
+      <h2><%=  parking.address%></h2>
+      <%= cl_image_tag parking.photos.first.key %>
+    </div>
+  <% end  %>
+</div>

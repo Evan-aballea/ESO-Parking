@@ -46,9 +46,14 @@ class ParkingsController < ApplicationController
   end
 
   def edit
+    @parking = Parking.find(params[:id])
   end
 
   def update
+    @parking = Parking.find(params[:id])
+    @parking.update(parking_params)
+    # No need for app/views/restaurants/update.html.erb
+    redirect_to parking_path(@parking)
   end
 
   def destroy

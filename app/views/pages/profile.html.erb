@@ -27,17 +27,29 @@
   <h2>My Parkings</h2>
        <% if @parkings %>
           <% @parkings.each do |parking| %>
-              <%=  link_to parking_path(parking), class: "link-to-show" do%>
-              <div class="card-product">
-                <%= cl_image_tag parking.photos.first.key, width:200 %>
-                <div class="card-product-infos">
-                  <h2><%= parking.address %></h2>
-                  <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
-                  <p>Availability: <%= parking.availability_date %></p>
-                </div>
+            <%=  link_to parking_path(parking), class: "link-to-show" do%>
+            <div class="card-product">
+              <%= cl_image_tag parking.photos.first.key, width:200 %>
+              <div class="card-product-infos">
+                <h2><%= parking.address %></h2>
+                <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
+                <p>Availability: <%= parking.availability_date %></p>
               </div>
-              <% end  %>
-           <% end %>
+            </div>
+            <%parking.bookings.each do |booking_by_parking|%>
+              <div class="booking-parking" style="background-color: white; margin-bottom:4px">
+                <h2> One booking by <%=booking_by_parking.user.first_name%> <%=booking_by_parking.user.last_name%> </h2>
+                <p>for the <%=booking_by_parking.arrival%> until <%=booking_by_parking.depart%> </p>
+                <%# <%=booking_by_parking.user.photo.key%>
+                <%if booking_by_parking.confirmation == false %>
+                  <%=link_to "Validate the booking", validate_booking_path(booking_by_parking), data: {turbo_method: :patch}, class:"btn btn-primary" %>
+                <%end%>
+              </div>
+            <%end%>
+
+
+          <% end %>
+         <%end%>
         <% else %>
            <p>you do not have any Parking yet</p>
         <% end %>

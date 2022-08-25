@@ -79,13 +79,20 @@ a.link-to-show {
 
 .form-control{
 background-color: whitesmoke;
+color: black;
 }
 
 
 .map-search {
   position: fixed;
   margin-left: 700px;
-  width: 100%
+  width: 100%;
+  border-radius: 50px;
 
+}
+
+
+.btn {
+ color: black;
 
 }

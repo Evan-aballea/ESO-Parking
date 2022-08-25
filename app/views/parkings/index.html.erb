@@ -1,6 +1,7 @@
-
-
-<div class= "index-split" style="margin-top: 90px">
+<div style="margin-top:70px; margin-left:40px">
+<h1>Check out these parkings!</h1>
+</div>
+<div class= "index-split" style="margin-top: 30px">
   <ul>
     <% @parkings.each do |parking| %>
       <%=  link_to parking_path(parking), class: "link-to-show" do%>
@@ -17,6 +18,11 @@
   </ul>
 
   <div class="map-search">
+    <div class= "map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
     <div class="search">
       <%= form_with url: parkings_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
@@ -24,13 +30,9 @@
        class: "form-control",
        placeholder: "Find a parking"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn btn-primary"%>
       <% end %>
     </div>
-    <div class= "map"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+
    </div>
 </div>

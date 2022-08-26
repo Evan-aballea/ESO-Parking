@@ -4,6 +4,6 @@ import "./controllers"
 import "bootstrap"
 import { initFlatpickr } from "./plugins/flatpickr";
 
-document.addEventListener('DOMContentLoaded', () => {
-initFlatpickr();
-})
+window.addEventListener("turbo:load", function() {
+  initFlatpickr();
+});

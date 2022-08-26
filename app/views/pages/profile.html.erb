@@ -17,6 +17,9 @@
               <li><strong>Arrival:</strong> <%= booking.booking_start%></li>
               <li><strong>Depart:</strong>  <%= booking.booking_end%></li>
             </ul>
+            <%if booking.confirmation == false%>
+              <p class="grey">(En attente de validation)</p>
+            <%end%>
             <p><small><%= link_to "delete", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: 'text-danger' %></small></p>
           <% end %>
       <% else %>

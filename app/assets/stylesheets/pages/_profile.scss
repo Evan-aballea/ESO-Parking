@@ -5,6 +5,8 @@
 .dashcontainer{
   display: flex;
   justify-content: space-between;
+  margin-right: 40px;
+  margin-left: 40px;
 }
 .user-info{
   padding: 30px;
@@ -12,6 +14,7 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  height: 250px;
   #host-name{
     margin-top: 30px;
   }
@@ -64,7 +67,7 @@
   .booking-parking{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
     background: #f6f3ed;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     margin-top: 10px;
@@ -79,11 +82,12 @@
       font-size: 18px;
       padding:10px;
       text-align: center;
+      margin: 0;
      }
      p{
       font-size: 16px;
-      padding: 10px;
       text-align: center;
+      margin: 0;
      }
 
     .btn {
@@ -92,6 +96,9 @@
       left: 45%;
       background-color: whitesmoke;
       border: none;
+    }
+    ul{
+      margin: 0;
     }
   }
 }
@@ -135,4 +142,15 @@
 
 .card-profile .card-product-infos {
   padding: 16px;
+}
+
+.mini-avatar{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.booking-parking>h2{
+  justify-content: center;
 }

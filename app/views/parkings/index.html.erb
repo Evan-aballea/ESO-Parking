@@ -8,7 +8,7 @@
         <div class="card-product">
           <%= cl_image_tag parking.photos.first.key, width:200 %>
           <div class="card-product-infos">
-            <h2><%= parking.address %></h2>
+            <h2 style ="font-family: roboto;"><%= parking.address %></h2>
             <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
             <p> Available dates: <%= parking.start_date %> to <%= parking.end_date %></p>
           </div>

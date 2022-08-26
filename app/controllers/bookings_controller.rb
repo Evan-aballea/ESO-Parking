@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.parking = @parking
     @booking.save!
-    redirect_to parking_path(@parking)
+    redirect_to profile_path(@booking.user)
   end
 
   def destroy

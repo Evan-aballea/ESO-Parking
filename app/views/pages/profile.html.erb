@@ -3,13 +3,13 @@
 
 <div class ="dashcontainer">
 
-  <div class ="user-info">
+  <div class ="user-info" style="font-family:roboto">
         <%= cl_image_tag current_user.photo.key, class: "avatar-square", alt: "avatar-square" %>
       <p id="host-name"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></p>
   </div>
 
-  <div class ="bookings">
-      <h2>My bookings</h2>
+  <div class ="bookings", style="font-family:roboto; background-color: whitesmoke;">
+      <h2 style="font-family:roboto">My bookings</h2>
       <% if @bookings %>
         <% @bookings.each do |booking| %>
            <ul>
@@ -27,17 +27,17 @@
       <% end %>
   </div>
 
-  <div class ="parkings">
-    <h2>My Parkings</h2>
+  <div class ="parkings" style="font-family:roboto; background-color: white;">
+    <h2 style="font-family:roboto">My Parkings</h2>
     <div class = "parking-info">
        <% if @parkings %>
           <% @parkings.each do |parking| %>
             <div class = "parking-info">
               <%=  link_to parking_path(parking), class: "link-to-show" do%>
-              <div class="card-profile">
+              <div class="card-profile" style="background-color:lightbrown">
                 <%= cl_image_tag parking.photos.first.key, width:200 %>
                 <div class="card-profile-infos">
-                  <h2><%= parking.address %></h2>
+                  <h2 style="font-family:roboto"><%= parking.address %></h2>
                   <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
                   <div id = "bottom">
                     <p>Availability: <%= parking.start_date %></p>
@@ -48,15 +48,15 @@
               </div>
         </div>
     </div>
-         <div class="booking-confirm">
+         <div class="booking-confirm" style="font-family:roboto;">
           <%parking.bookings.each do |booking_by_parking|%>
               <div class="booking-parking" style="background-color: white; margin-bottom:4px">
-                <h2> One booking by <%=booking_by_parking.user.first_name%> <%=booking_by_parking.user.last_name%> </h2>
+                <h2 style="font-family:roboto"> One booking by <%=booking_by_parking.user.first_name%> <%=booking_by_parking.user.last_name%> </h2>
                 <p>for the <%=booking_by_parking.booking_start%> until <%=booking_by_parking.booking_end%> </p>
                 <%# <%=booking_by_parking.user.photo.key%>
                 <%if booking_by_parking.confirmation == false %>
                   <%=link_to "Validate the booking", validate_booking_path(booking_by_parking), data: {turbo_method: :patch}, class:"btn btn-primary"%>
-                  <%=link_to "Delete the booking", booking_path(booking_by_parking), data: {turbo_method: :delete}, class:"btn btn-danger" %>
+                  <%=link_to "Delete the booking", booking_path(booking_by_parking), data: {turbo_method: :delete}, class:"btn btn-danger", style: "margin-bottom:10px"%>
                 <%end%>
               </div>
             <%end%>

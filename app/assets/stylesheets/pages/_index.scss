@@ -5,6 +5,7 @@
 .card-product {
   overflow: hidden;
   height: 120px;
+  width: 110%;
   background: #f6f3ed;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -12,6 +13,11 @@
   margin-bottom: 10px;
   margin-right: 20px;
   border-radius: 10px;
+
+}
+
+.card-product:hover {
+  margin: 10px;
 }
 
 .card-product img {
@@ -84,7 +90,6 @@ color: black;
 
 
 .map-search {
-  z-index: -1;
   position: fixed;
   margin-left: 700px;
   width: 100%;

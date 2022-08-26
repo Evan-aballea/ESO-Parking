@@ -10,7 +10,7 @@ require 'date'
 Booking.destroy_all
 Parking.destroy_all
 User.destroy_all
-
+=begin
 file = URI.open("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
 user1 = User.new(first_name: "oli", last_name: "bart", email: 'oli.bart@gmail.fr', phone_number: '0606066057', password:'PASSWORD1' )
 user1.photo.attach(io: file, filename: "profil1.png", content_type: "image/png")
@@ -52,9 +52,11 @@ pkg3.save
 
 
 
+
 book1 = Booking.new(user_id: user3.id, parking_id: pkg1.id, booking_start: DateTime.new(2022,8,23,4,5,6), booking_end: DateTime.new(2022,8,23,4,5,6))
 book1.save
 book2 = Booking.new(user_id: user3.id, parking_id: pkg3.id, booking_start: DateTime.new(2022,9,23,4,5,6), booking_end: DateTime.new(2022,8,23,4,5,6))
 book2.save
 book3 = Booking.new(user_id: user1.id, parking_id: pkg3.id, booking_start: DateTime.new(2022,8,23,4,5,6), booking_end: DateTime.new(2022,8,23,4,5,6))
 book3.save
+=end

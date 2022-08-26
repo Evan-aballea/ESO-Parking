@@ -3,10 +3,7 @@
 
 <div class ="dashcontainer">
 
-  <div class ="user-info" style="font-family:roboto">
-        <%= cl_image_tag current_user.photo.key, class: "avatar-square", alt: "avatar-square" %>
-      <p id="host-name"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></p>
-  </div>
+
 
   <div class ="bookings", style="font-family:roboto; background-color: whitesmoke;">
       <h2 style="font-family:roboto">My bookings</h2>
@@ -30,10 +27,10 @@
   <div class ="parkings" style="font-family:roboto; background-color: white;">
     <h2 style="font-family:roboto">My Parkings</h2>
     <div class = "parking-info">
-       <% if @parkings %>
-          <% @parkings.each do |parking| %>
-            <div class = "parking-info">
-              <%=  link_to parking_path(parking), class: "link-to-show" do%>
+      <% if @parkings %>
+        <% @parkings.each do |parking| %>
+          <div class = "parking-info">
+            <%=  link_to parking_path(parking), class: "link-to-show" do%>
               <div class="card-profile" style="background-color:lightbrown">
                 <%= cl_image_tag parking.photos.first.key, width:200 %>
                 <div class="card-profile-infos">
@@ -42,30 +39,33 @@
                   <div id = "bottom">
                     <p>Availability: <%= parking.start_date %></p>
                     <p><small><%= link_to "delete", parking_path(parking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this parking?"}, class: 'text-danger' %></small></p>
-                    <p id ="edit-button"> <%= link_to edit_parking_path(parking), class: "link-to-show" do %> edit <%end %></p>
+                    <p id ="edit-button"> <%= link_to edit_parking_path(parking), class: "link-to-show" do %> edit </p><%end %>
                   </div>
                 </div>
               </div>
-        </div>
-    </div>
-         <div class="booking-confirm" style="font-family:roboto;">
-          <%parking.bookings.each do |booking_by_parking|%>
+            <%end%>
+          </div>
+          <div class="booking-confirm d-flex" style="font-family:roboto;">
+            <%parking.bookings.each do |booking_by_parking|%>
               <div class="booking-parking" style="background-color: white; margin-bottom:4px">
-                <h2 style="font-family:roboto"> One booking by <%=booking_by_parking.user.first_name%> <%=booking_by_parking.user.last_name%> </h2>
-                <p>for the <%=booking_by_parking.booking_start%> until <%=booking_by_parking.booking_end%> </p>
-                <%# <%=booking_by_parking.user.photo.key%>
+                <p style="font-family:roboto"> Booking by </p>
+                <h2 style="font-family:roboto"><%=booking_by_parking.user.first_name%> <%=booking_by_parking.user.last_name%> </h2>
+                <%= cl_image_tag booking_by_parking.user.photo.key, class:"mini-avatar"%>
+                <ul>
+                  <li>For the <%=booking_by_parking.booking_start%></li>
+                  <li>Until <%=booking_by_parking.booking_end%> </li>
                 <%if booking_by_parking.confirmation == false %>
                   <%=link_to "Validate the booking", validate_booking_path(booking_by_parking), data: {turbo_method: :patch}, class:"btn btn-primary"%>
                   <%=link_to "Delete the booking", booking_path(booking_by_parking), data: {turbo_method: :delete}, class:"btn btn-danger", style: "margin-bottom:10px"%>
                 <%end%>
               </div>
             <%end%>
-          <% end %>
-         <%end%>
-        </div>
-        <% else %>
-           <p>you do not have any parkings registered yet</p>
-        <% end %>
-  </div>
+          </div>
+        <%end%>
 
+      <% else %>
+        <p>you do not have any parkings registered yet</p>
+      <% end %>
+    </div>
+  </div>
 </div>

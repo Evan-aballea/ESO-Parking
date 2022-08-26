@@ -13,17 +13,17 @@
       <% if @bookings %>
         <% @bookings.each do |booking| %>
            <ul>
-              <li><strong>Adresse:</strong> <%= booking.parking.address%> </li>
+              <li><strong>Address:</strong> <%= booking.parking.address%> </li>
               <li><strong>Arrival:</strong> <%= booking.booking_start%></li>
               <li><strong>Depart:</strong>  <%= booking.booking_end%></li>
             </ul>
             <%if booking.confirmation == false%>
-              <p class="grey">(En attente de validation)</p>
+              <p class="grey">(Awaiting owner validation)</p>
             <%end%>
             <p><small><%= link_to "delete", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: 'text-danger' %></small></p>
           <% end %>
       <% else %>
-      <p>you do not have any booking yet</p>
+      <p>you do not have any bookings completed yet</p>
       <% end %>
   </div>
 
@@ -61,7 +61,7 @@
           <% end %>
          <%end%>
         <% else %>
-           <p>you do not have any Parking yet</p>
+           <p>you do not have any parkings registered yet</p>
         <% end %>
   </div>
 

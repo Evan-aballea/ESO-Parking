@@ -6,9 +6,9 @@
 
         <%= simple_form_for @parking  do |f| %>
           <%= f.input :address, placeholder: 'Parking' %>
-          <%= f.input :height, placeholder: 'Height' %>
-          <%= f.input :width, placeholder: 'Width' %>
-          <%= f.input :length, placeholder: 'Length' %>
+          <%= f.input :height, placeholder: 'Height (in cm)' %>
+          <%= f.input :width, placeholder: 'Width (in cm)' %>
+          <%= f.input :length, placeholder: 'Length (in cm)' %>
           <%= f.input :description, placeholder: 'Description' %>
           <%= f.input :pass_code, placeholder: 'Passcode' %>
           <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>

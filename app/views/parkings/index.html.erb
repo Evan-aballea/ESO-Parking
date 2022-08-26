@@ -1,8 +1,8 @@
-<div style="margin-top:70px; margin-left:40px">
-<h1>Check out these parkings!</h1>
+<div style="margin-top:80px; margin-left:40px; ">
+<h1 style ="font-family: roboto;">Look for some parkings!</h1>
 </div>
 <div class= "index-split" style="margin-top: 30px">
-  <ul>
+  <ul style ="font-family: roboto;" >
     <% @parkings.each do |parking| %>
       <%=  link_to parking_path(parking), class: "link-to-show" do%>
         <div class="card-product">
@@ -10,7 +10,7 @@
           <div class="card-product-infos">
             <h2><%= parking.address %></h2>
             <p> <%= parking.description.capitalize %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
-            <p> Availability: <%= parking.start_date %></p>
+            <p> Available dates: <%= parking.start_date %> to <%= parking.end_date %></p>
           </div>
         </div>
       <% end  %>
@@ -23,7 +23,7 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <div class="search">
+    <div class="search" style ="font-family: roboto;">
       <%= form_with url: parkings_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
        params[:query],

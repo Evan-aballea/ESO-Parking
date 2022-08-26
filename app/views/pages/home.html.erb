@@ -5,22 +5,16 @@
     </div>
     <div class ="container_buttons">
       <%=  link_to parkings_path, class: "link-to-show" do%>
-      <p class="button">
-       Browse Parkings in your area
-      </p>
+        <p class="button">Browse Parkings in your area</p>
       <% end %>
-        <% if user_signed_in? %>
-          <%=  link_to destroy_user_session_path, data: { turbo_method: :delete}, class: "link-to-login" do%>
-          <p class="button">
-            Log-off
-          </p>
-          <% end %>
-        <% else %>
-          <%=  link_to new_user_session_path, class: "link-to-login" do%>
-          <p class="button">
-            Log-in
-          </p>
-          <% end %>
+      <% if user_signed_in? %>
+        <%=  link_to destroy_user_session_path, data: { turbo_method: :delete}, class: "link-to-login" do%>
+          <p class="button">Log-off</p>
+        <% end %>
+      <% else %>
+        <%=  link_to new_user_session_path, class: "link-to-login" do%>
+          <p class="button">Log-in</p>
+        <% end %>
       <% end %>
   </div>
 </div>
@@ -29,12 +23,21 @@
     <h2 class = "text-center">How it works</h2>
     <div class = "container-cards">
       <div class = "card">
-      <%=  link_to new_user_registration_path, class: "link-to-login" do%>
-        <%= image_tag "profile.png"%>
-        <h3>Sign-in</h3>
-        <p>Create your account</p>
+        <% if user_signed_in? %>
+          <%=  link_to profile_path(), class: "link-to-login" do%>
+          <%= cl_image_tag current_user.photo.key, class: "avatar-square", alt: "avatar-square" %>
+          <h3>Profile</h3>
+          <p>See my parkings and my bookings</p>
+          <%end%>
+        <%else%>
+          <%=  link_to new_user_registration_path, class: "link-to-login" do%>
+          <%= image_tag "profile.png"%>
+          <h3>Sign-in</h3>
+          <p>Create your account</p>
+          <%end%>
+        <%end%>
       </div>
-      <% end %>
+
       <div class = "card">
         <%= link_to new_parking_path, class: "link-to-show" do  %>
         <%= image_tag "land.png"%>

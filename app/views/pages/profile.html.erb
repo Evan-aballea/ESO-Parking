@@ -54,10 +54,16 @@
                 <ul>
                   <li>For the <%=booking_by_parking.booking_start%></li>
                   <li>Until <%=booking_by_parking.booking_end%> </li>
+
                 <%if booking_by_parking.confirmation == false %>
-                  <%=link_to "Validate the booking", validate_booking_path(booking_by_parking), data: {turbo_method: :patch}, class:"btn btn-primary"%>
-                  <%=link_to "Delete the booking", booking_path(booking_by_parking), data: {turbo_method: :delete}, class:"btn btn-danger", style: "margin-bottom:10px"%>
+                  <%=link_to validate_booking_path(booking_by_parking), data: {turbo_method: :patch}, class:" icon yes" do%>
+                  <i class="fa-solid fa-circle-check"></i>
+                  <%end%>
                 <%end%>
+                <%=link_to booking_path(booking_by_parking), data: {turbo_method: :delete}, class:"icon non" do%>
+                  <i class="fa-solid fa-circle-minus"></i>
+                <%end%>
+                </ul>
               </div>
             <%end%>
           </div>

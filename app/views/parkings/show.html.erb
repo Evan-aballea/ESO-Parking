@@ -1,13 +1,7 @@
 
-<div style="margin-top:60px; margin-left:30px; margin-right:30px; font-family:roboto">
+<div style="margin-top:70px; margin-left:30px; margin-right:30px; font-family:roboto">
   <div class = "title">
-    <h1 style="font-family:roboto">Address: <%=@parking.address%></h1>
-    <div class = "edit_delete">
-    <% if @parking.user == current_user %>
-    <p id ="delete-button"><%= link_to "Delete", parking_path(@parking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ti delete this Parking?"}%></p>
-    <p id ="edit-button"> <%= link_to edit_parking_path, class: "link-to-show" do %> edit <%end %></p>
-    <% end %>
-    </div>
+    <h1 style="font-family:roboto"><strong> <%=@parking.address%></strong></h1>
   </div>
 
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

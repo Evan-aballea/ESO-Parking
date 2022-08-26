@@ -25,9 +25,11 @@
   </div>
 
   <div class ="parkings">
-  <h2>My Parkings</h2>
+    <h2>My Parkings</h2>
+    <div class = "parking-info">
        <% if @parkings %>
           <% @parkings.each do |parking| %>
+            <div class = "parking-info">
               <%=  link_to parking_path(parking), class: "link-to-show" do%>
               <div class="card-profile">
                 <%= cl_image_tag parking.photos.first.key, width:200 %>
@@ -41,22 +43,23 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <%parking.bookings.each do |booking_by_parking|%>
+        </div>
+    </div>
+         <div class="booking-confirm">
+          <%parking.bookings.each do |booking_by_parking|%>
               <div class="booking-parking" style="background-color: white; margin-bottom:4px">
                 <h2> One booking by <%=booking_by_parking.user.first_name%> <%=booking_by_parking.user.last_name%> </h2>
                 <p>for the <%=booking_by_parking.booking_start%> until <%=booking_by_parking.booking_end%> </p>
                 <%# <%=booking_by_parking.user.photo.key%>
                 <%if booking_by_parking.confirmation == false %>
-                  <%=link_to "Validate the booking", validate_booking_path(booking_by_parking), data: {turbo_method: :patch}, class:"btn btn-primary" %>
+                  <%=link_to "Validate the booking", validate_booking_path(booking_by_parking), data: {turbo_method: :patch}, class:"btn btn-primary"%>
                   <%=link_to "Delete the booking", booking_path(booking_by_parking), data: {turbo_method: :delete}, class:"btn btn-danger" %>
                 <%end%>
               </div>
             <%end%>
-
-
           <% end %>
          <%end%>
+        </div>
         <% else %>
            <p>you do not have any Parking yet</p>
         <% end %>
